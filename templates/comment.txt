@@ -1,0 +1,6 @@
+{% block main %}
+Комментарий: {{data.com}}
+Под пост: 
+Название - {{mapa.title}}
+ID - {{mapa.id}}
+{% endblock %}

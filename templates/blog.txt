@@ -1,0 +1,13 @@
+{% block main %}
+Topiks:
+	{% for row in mapa %}
+	Title: {{row.title}}
+	Text: {{row.text}}
+	id: {{row.id}}
+		{% for come in data %}
+			{% if come.article_id == row.id %}
+			comments: {{come.com}}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,4 @@
+{% block main %}
+	Title: {{data.title}}
+	Text: {{data.text}}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <img src="/static/img/ablog-logo.png" alt="A Blog logo">
+    </div>
+
+    <div class="container">
+        <form method="post">
+            <fieldset>
+                <div class="panel panel-primary panel-heading">
+                    <legend><h2>New article</h2></legend>
+                    <div class="panel-title">Title</div>
+                    <input type="text" class="panel-body" name="title" value="">
+                    <br>
+                    <br>
+                    <div class="panel-title">
+                        Date: <i> {{date_time}}</i>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="panel-title">Content</div>
+                    <textarea class="panel-body" name="text" cols="40" rows="3"></textarea><br>
+                    <input type="submit" class="btn btn-lg btn-primary" value="Submit">
+                </div>
+            </fieldset>
+        </form>
+        <br>
+        <fieldset>
+            <div class="panel panel-primary panel-heading">
+                <legend><h2>Blog articles</h2></legend>
+                {% for article in articles %}<br>
+                    <b>Title:</b> <a href="{{ url_for('create', article_id=article.id) }}">{{ article.title }}</a><br>
+                    <b>Date:</b> {{ article.date_created }}<br>
+                    <b>Content:</b><i> {{ article.text }}</i><br>
+                {% endfor %}<br>
+            </div>
+        </fieldset>
+    </div>
+</div>
+{% endblock %}
